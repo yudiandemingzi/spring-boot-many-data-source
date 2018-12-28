@@ -23,6 +23,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
 
+#配置了两个数据源
 master:
   datasource:
     url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true

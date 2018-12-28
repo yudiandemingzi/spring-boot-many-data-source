@@ -19,13 +19,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * 
-* @Title: MasterDataSourceConfig
-* @Description:
-* 主数据源配置
-* @Version:1.0.0  
-* @author pancm
-* @date 2018年4月26日
+ * 主数据源配置
  */
 @Configuration
 @MapperScan(basePackages = MasterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "masterSqlSessionFactory")
