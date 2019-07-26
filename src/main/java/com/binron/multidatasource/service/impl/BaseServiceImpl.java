@@ -12,19 +12,16 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
- * 
-* @Title: BaseServiceImpl
-* @Description:
-* 数据层公共实现类 
-* @Version:1.0.0  
-* @author pancm
-* @date 2018年4月12日
+ * @Description: 数据层公共实现类
+ *
+ * @author xub
+ * @date 2018/7/26 下午6:25
  */
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	private static final Logger logger= LoggerFactory.getLogger(BaseServiceImpl.class);
 
 	protected abstract BaseMapper<T> getMapper();
-	
+
 
 	@Override
 	public boolean insert(T entity)  {
@@ -37,8 +34,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return falg;
 	}
-	
-	
+
+
 	@Override
 	public boolean update(T entity){
 		boolean falg=false;
@@ -50,7 +47,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return falg;
 	}
-	
+
 	@Override
 	public boolean deleteByPrimaryKey(int id)  {
 		boolean falg=false;
@@ -62,7 +59,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return falg;
 	}
-	
+
 	@Override
 	public boolean delete(T entity){
 		boolean falg=false;
@@ -74,7 +71,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return falg;
 	}
-	
+
 	@Override
 	public T findByPrimaryKey(int id) {
 		T obj = null;
@@ -85,7 +82,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return obj;
 	}
-	
+
 	@Override
 	public T findByEntity(T entity) {
 		T obj = null;
@@ -96,12 +93,12 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return obj;
 	}
-	
+
 	@Override
 	public List<T> findByListEntity(T entity) {
 		List<T> list = null;
 		try {
-			Page<?> page =PageHelper.startPage(1,2); 
+			Page<?> page =PageHelper.startPage(1,2);
 			System.out.println(getClassName(entity)+"设置第一页两条数据!");
 			list = getMapper().findByListEntity(entity);
 			System.out.println("总共有:"+page.getTotal()+"条数据,实际返回:"+list.size()+"两条数据!");
@@ -110,7 +107,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return list;
 	}
-	
+
 	@Override
 	public List<T> findAll() {
 		List<T> list = null;
@@ -121,7 +118,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return list;
 	}
-	
+
 	@Override
 	public Object findByObject(Object obj) {
 		Object result = null;
@@ -132,7 +129,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		return result;
 	}
-	
+
 	private String getClassName(T t){
 		String str="";
 		if(t instanceof User){
